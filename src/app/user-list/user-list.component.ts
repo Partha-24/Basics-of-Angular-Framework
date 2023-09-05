@@ -16,20 +16,27 @@ export class UserListComponent {
     new Hero('Ayattan', 'Sudip', 'sudip@example.com', true),
     new Hero('Nama', 'Vishal', 'vishal@example.com', true),
     new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
+    new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
+    new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
+    new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
+    new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
+    new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
   ];
   
-  //create model 
-  users: User[] = [
-    { First_Name: 'John', Last_Name: 'Doe', Email: 'john@example.com', IsActive: true },
-    { First_Name: 'Alin', Last_Name: 'Paul', Email: 'alin@example.com', IsActive: false },
-    { First_Name: 'Sudip', Last_Name: 'Ayattan', Email: 'sudip@example.com', IsActive: true },
-    { First_Name: 'Vishal', Last_Name: 'Nama', Email: 'vishal@example.com', IsActive: false },
-    { First_Name: 'Shivang', Last_Name: 'Joshi', Email: 'shivang@example.com', IsActive: true },
-  ];
+  //created model 
+  // users: User[] = [
+  //   { First_Name: 'John', Last_Name: 'Doe', Email: 'john@example.com', IsActive: true },
+  //   { First_Name: 'Alin', Last_Name: 'Paul', Email: 'alin@example.com', IsActive: false },
+  //   { First_Name: 'Sudip', Last_Name: 'Ayattan', Email: 'sudip@example.com', IsActive: true },
+  //   { First_Name: 'Vishal', Last_Name: 'Nama', Email: 'vishal@example.com', IsActive: false },
+  //   { First_Name: 'Shivang', Last_Name: 'Joshi', Email: 'shivang@example.com', IsActive: true },
+  // ];
+  // selectedUser: User | null = null;
 
-  selectedUser: User | null = null;
+  selectedUser: Hero | null = null;
+  // selectedUser = this.heroes[1];
 
-  showUserDetails(user: User) {
+  showUserDetails(user: Hero) {
     this.selectedUser = user;
   }
 }

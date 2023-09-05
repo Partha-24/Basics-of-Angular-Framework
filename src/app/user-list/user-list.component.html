@@ -1,33 +1,44 @@
 <h2>User List</h2>
-<table>
-    <thead>
-        <tr>
-        <th>First_Name</th>
-        <th>Email</th>
-        <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of heroes">
-        <td>{{ user.First_Name }}</td>
-        <td>{{ user.Email }}</td>
-        <td><button (click)="showUserDetails(user)">Show Me</button></td>
-        </tr>
-    </tbody>
-</table>
 
-<div *ngIf="selectedUser">
-    <h3>User Details</h3>
-    <div>
-        <strong>First Name:</strong> {{ selectedUser.First_Name }}
+<div id="container">
+
+    <div id="left-side">
+        <table id="users">
+            <thead>
+                <tr>
+                    <th>First_Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of heroes">
+                    <td>{{ user.Last_Name }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td id="btn-cell"><button class="show-me-btn" (click)="showUserDetails(user)">Show Me</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div>
-        <strong>Last Name:</strong> {{ selectedUser.Last_Name }}
-    </div>  
-    <div>
-        <strong>Email:</strong> {{ selectedUser.Email }}
+    
+    <div id="right-side">
+        <h3>User Details</h3>
+        <div id="textDiv" *ngIf="selectedUser">
+            <div class="details-fields">
+                <strong>First Name:</strong> {{ selectedUser.Last_Name }}
+            </div>
+            <div class="details-fields">
+                <strong>Last Name:</strong> {{ selectedUser.First_Name }}
+            </div>  
+            <div class="details-fields">
+                <strong>Email:</strong> {{ selectedUser.Email }}
+            </div>
+            <div class="details-fields">
+                <strong>Active:</strong> {{ selectedUser.IsActive ? 'Yes' : 'No' }}
+            </div>
+        </div>
     </div>
-    <div>
-        <strong>Active:</strong> {{ selectedUser.IsActive ? 'Yes' : 'No' }}
-    </div>
+
 </div>
+
+
