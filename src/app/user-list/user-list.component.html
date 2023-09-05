@@ -1,0 +1,33 @@
+<h2>User List</h2>
+<table>
+    <thead>
+        <tr>
+        <th>First_Name</th>
+        <th>Email</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of heroes">
+        <td>{{ user.First_Name }}</td>
+        <td>{{ user.Email }}</td>
+        <td><button (click)="showUserDetails(user)">Show Me</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="selectedUser">
+    <h3>User Details</h3>
+    <div>
+        <strong>First Name:</strong> {{ selectedUser.First_Name }}
+    </div>
+    <div>
+        <strong>Last Name:</strong> {{ selectedUser.Last_Name }}
+    </div>  
+    <div>
+        <strong>Email:</strong> {{ selectedUser.Email }}
+    </div>
+    <div>
+        <strong>Active:</strong> {{ selectedUser.IsActive ? 'Yes' : 'No' }}
+    </div>
+</div>
