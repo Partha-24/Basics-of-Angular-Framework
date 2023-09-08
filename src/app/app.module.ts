@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddUserFormComponent } from './add-user-form/add-user-form.component';
+import { UserLogService } from './user-log.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { AddUserFormComponent } from './add-user-form/add-user-form.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserLogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

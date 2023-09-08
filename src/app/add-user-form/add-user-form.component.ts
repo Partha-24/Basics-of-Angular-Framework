@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.model';
+import { UserLogService } from '../user-log.service';
 
 @Component({
   selector: 'app-add-user-form',
@@ -28,12 +29,21 @@ export class AddUserFormComponent {
   user: User = new User();
 
   @Output() userAdded = new EventEmitter<User>();
+  constructor(private userLogService: UserLogService) {}
 
   onSubmit() {
     // Emit an event with the user data
     this.userAdded.emit(this.user);
 
     // Clear the form for the next user
+    // this.user = new User();
+
+    // Log user details using the UserLogService
+    this.userLogService.LogMyDetail(this.user);
+
+    // Clear the form for the next user
     this.user = new User();
   }
+
+
 }
