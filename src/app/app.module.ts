@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import { AddUserFormComponent } from './add-user-form/add-user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     UserListComponent,
-    AddUserComponent
+    AddUserFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

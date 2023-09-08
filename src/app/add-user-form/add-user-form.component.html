@@ -1,0 +1,25 @@
+<div class="container">
+    <div id="form-div">
+        <h2 style="color: white;">Add User</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div id="formDiv">
+                <div>
+                    <input class="input" type="text" id="first_name" name="First_Name" [(ngModel)]="user.First_Name" placeholder="First Name" required>
+                </div>
+                <div> 
+                    <input class="input" type="text" id="last_name" name="Last_Name" [(ngModel)]="user.Last_Name" placeholder="Last Name" required>
+                </div>
+                <div>
+                    <input class="input" type="email" id="email" name="Email" [(ngModel)]="user.Email" placeholder="Email" required>
+                </div>
+                <div>
+                    <input type="checkbox" id="is_active" name="IsActive" [(ngModel)]="user.IsActive">
+                    <label for="is_active"> - Active</label>
+                </div>
+                <div>
+                    <button id="submitBtn" type="submit">Add User</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

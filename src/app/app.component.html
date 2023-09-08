@@ -12,5 +12,12 @@
 </div>
 
 <div id="chapter-3">
-    <app-user-list></app-user-list>
+    <app-user-list #userList></app-user-list>
+</div>
+
+<div id="chapter-4">
+    <app-add-user-form (userAdded)="userList.addUser($event)"></app-add-user-form>
+</div>
+
+<div id="chapter-5">
 </div>

@@ -23,6 +23,9 @@ export class UserListComponent {
     new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
   ];
   
+  addUser(newUser: User) {
+    this.heroes.push(newUser);
+  }
   //created model 
   // users: User[] = [
   //   { First_Name: 'John', Last_Name: 'Doe', Email: 'john@example.com', IsActive: true },
