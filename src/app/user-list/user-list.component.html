@@ -10,7 +10,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of heroes">
+                <tr *ngFor="let user of users">
+                <!-- <tr *ngFor="let user of heroes"> -->
                     <td>{{ user.Last_Name }}</td>
                     <td>{{ user.Email }}</td>
                     <td id="btn-cell"><button class="show-me-btn" (click)="showUserDetails(user)">Show Me</button></td>

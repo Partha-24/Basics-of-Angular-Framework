@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.model';
 import { UserLogService } from '../user-log.service';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-add-user-form',
@@ -29,17 +30,27 @@ export class AddUserFormComponent {
   user: User = new User();
 
   @Output() userAdded = new EventEmitter<User>();
-  constructor(private userLogService: UserLogService) {}
+  // constructor(private userLogService: UserLogService) {}
+  constructor(private userDataService: UserDataService) {}
 
   onSubmit() {
     // Emit an event with the user data
     this.userAdded.emit(this.user);
-
+    // Clear the form for the next user
+    // this.user = new User();
+    // Log user details using the UserLogService
+    // this.userLogService.LogMyDetail(this.user);
     // Clear the form for the next user
     // this.user = new User();
 
-    // Log user details using the UserLogService
-    this.userLogService.LogMyDetail(this.user);
+    this.userDataService.addUser(this.user).subscribe(
+      (newUser) => {
+        console.log('User added successfully:', newUser);
+      },
+      (error) => {
+        console.error('Error adding user:', error);
+      }
+    );
 
     // Clear the form for the next user
     this.user = new User();
