@@ -13,6 +13,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data-service.service';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserErrorComponent } from './user-error/user-error.component';
 
 const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
     TestComponent,
     UserListComponent,
     AddUserFormComponent,
-    UserDetailComponent, 
+    UserDetailComponent,
+    UserErrorComponent, 
   ],
   imports: [
     BrowserModule,

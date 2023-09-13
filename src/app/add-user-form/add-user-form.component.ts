@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.model';
 import { UserLogService } from '../user-log.service';
 import { UserDataService } from '../user-data.service';
+import { Hero } from '../user-list/hero';
 
 @Component({
   selector: 'app-add-user-form',
@@ -10,6 +11,11 @@ import { UserDataService } from '../user-data.service';
 })
 
 export class AddUserFormComponent {
+
+  showError = false;
+  errorField = '';
+  errorMessage = '';
+  hint = '';
 
   // user: User = new User(); // Initialize an empty user
   // users: User[] = []; // Array to store users
@@ -43,6 +49,8 @@ export class AddUserFormComponent {
     // Clear the form for the next user
     // this.user = new User();
 
+    this.validateUserInput(this.user);
+
     this.userDataService.addUser(this.user).subscribe(
       (newUser) => {
         console.log('User added successfully:', newUser);
@@ -52,9 +60,19 @@ export class AddUserFormComponent {
       }
     );
 
-    // Clear the form for the next user
     this.user = new User();
   }
 
+  validateUserInput(user: Hero) {
+    if (!user.First_Name || !user.Last_Name || !user.Email) {
+      this.showError = true;
+      this.errorField = 'Fields cannot be empty';
+      this.errorMessage = 'Please fill in all required fields.';
+      this.hint = 'Hint: Make sure all fields are filled.';
+    }
+  }
 
+  hideError() {
+    this.showError = false;
+  }
 }

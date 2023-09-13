@@ -1,3 +1,8 @@
+<div id="errorDiv">
+    <app-user-error *ngIf="showError" [Error_Field]="errorField" [Error_Message]="errorMessage" [Hint]="hint" (closeError)="hideError()">
+    </app-user-error>
+</div>
+
 <div class="container">
     <div id="form-div">
         <h2 style="color: white;">Add User</h2>

@@ -1,0 +1,20 @@
+.user-error{
+    background-color: rgb(226, 0, 0);
+    padding: 10px;
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeBtn{
+    border: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.closeBtn :hover{
+    background-color: gray;
+}
