@@ -1,0 +1,24 @@
+<!-- <h2>User Detail</h2>
+<div *ngIf="user">
+    <p>{{ user.First_Name }} {{ user.Last_Name }}</p>
+    <p>Email: {{ user.Email }}</p>
+    <p>Active: {{ user.IsActive }}</p>
+</div> -->
+
+<div id="right-side">
+        <h3>User Details</h3>
+        <div id="textDiv" *ngIf="user">
+            <div class="details-fields">
+                <strong>First Name:</strong> {{ user.First_Name }}
+            </div>
+            <div class="details-fields">
+                <strong>Last Name:</strong> {{ user.Last_Name }}
+            </div>  
+            <div class="details-fields">
+                <strong>Email:</strong> {{ user.Email }}
+            </div>
+            <div class="details-fields">
+                <strong>Active:</strong> {{ user.IsActive ? 'Yes' : 'No' }}
+            </div>
+        </div>
+    </div>

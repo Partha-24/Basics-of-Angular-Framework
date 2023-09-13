@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDbService, RequestInfoUtilities } from 'angular-in-memory-web-api';
 import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InMemoryDataService implements InMemoryDbService {
+  private lastId = 0;
   createDb() {
     const users: User[] = [
       { First_Name: 'John', Last_Name: 'Doe', Email: 'john@example.com', IsActive: true },
@@ -16,7 +17,10 @@ export class InMemoryDataService implements InMemoryDbService {
       { First_Name: 'Vishal', Last_Name: 'Nama', Email: 'vishal@example.com', IsActive: false },
       { First_Name: 'Shivang', Last_Name: 'Joshi', Email: 'shivang@example.com', IsActive: true },
     ];
-
     return { users };
+  }
+  genId(users: User[]): number {
+    this.lastId += 1;
+    return this.lastId;
   }
 }

@@ -2,17 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
 import { Hero } from './hero';
 import { UserDataService } from '../user-data.service';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
+
 export class UserListComponent implements OnInit{
 
   users: User[] = [];
 
-  constructor(public userDataService: UserDataService) {}
+  constructor(public userDataService: UserDataService, private router: Router, private userService: UserService) {}
+  
 
   ngOnInit() {
     this.getUsers();
@@ -22,9 +26,6 @@ export class UserListComponent implements OnInit{
     this.userDataService.getUsers().subscribe(
       (users) => {
         this.users = users;
-        // console.log("type : "+ typeof this.heroes + typeof this.users)
-        // console.log("heroes : "+ this.heroes)
-        // console.log("users : "+ users );
       },
       (error) => {
         console.error('Error fetching users:', error);
@@ -32,7 +33,6 @@ export class UserListComponent implements OnInit{
     );
   }
 
-  //created class and constructor to set the values
   heroes = [
     new Hero('Doe', 'John', 'john@example.com', true),
     new Hero('Paul', 'Alin', 'alin@example.com', true),
@@ -46,8 +46,6 @@ export class UserListComponent implements OnInit{
     new Hero('Joshi', 'Shivang', 'shivang@example.com', true),
   ];
   
-
-
   addUser(newUser: User) {
     this.users.push(newUser);
   }
@@ -64,6 +62,9 @@ export class UserListComponent implements OnInit{
   selectedUser: Hero | null = null;
 
   showUserDetails(user: Hero) {
-    this.selectedUser = user;
+    // this.selectedUser = user;
+
+    this.userService.setUser(user);
+    this.router.navigate(['/user']);
   }
 }
